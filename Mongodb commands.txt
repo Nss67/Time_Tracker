@@ -39,3 +39,42 @@ db.students.find().sort({gpa: -1}).limit(1)  # show high score gpa in all of stu
 db.students.find({query}, {projection})
 e.g. db.students.find({Name: "Sandy"}, { _id: false, Name: true, age: true})
 
+db.students.updateOne({filter}, {$set:{update}})
+db.students.updateOne({Name: "Spong Bob"}, {$set:{Name: "Spongebob"}})
+db.students.updateMany({Name: "Spong Bob"}, {$set:{Name: "Spongebob"}})
+
+# make key_value pair with update method
+db.students.updateMany({fullTime: null}, {$set:{fullTime: false}})
+db.students.updateMany({fullTime: false}, {$set:{fullTime: true}})
+
+# update specific key_value by _id
+db.students.updateOne({_id: ObjectId('65b3b46b1bbb075b7cc18d4a')}, {$set:{fullTime: false}})
+
+# remove specific field by update method
+db.students.updateOne({_id: ObjectId('65b3b46b1bbb075b7cc18d4a')}, {$unset:{fulltime: ""}})
+db.students.updateMany({fulltime: null}, {$unset:{fulltime: ""}})
+
+# if one field is exist do something
+db.students.updateMany(HomeLess:{$exists: false}}, {$set:{HomeLess: true}})
+
+# delete some key_value pair
+db.students.deleteOne({Name: "Patrick"})
+db.students.deleteMany({fullTime: false})
+db.students.deleteMany({})  # delete all documents
+
+# Comparison Query Operators
+db.students.find({Name:{$ne: "Spongebob"}})  # not exist "Spongebob"
+db.students.find({age:{$lt: 20}})  # Less than 20
+db.students.find({age:{$lte: 27}})  # less than and equal 27
+db.students.find({age:{$gt: 27}})  # greater than 27
+db.students.find({age:{$gte: 27}})  # greater than and equal 27
+db.students.find({gpa:{$gte:3, $lte: 4}})  # gpa between 3 and 4
+db.students.find({Name:{$in:["Spongebob", "Larry", "Patrick"]}})  # show just this list of names
+db.students.find({Name:{$nin:["Spongebob", "Larry", "Patrick"]}}) # don't show this list od names
+
+
+# Logical Query Operators
+db.students.find({$and:[{fullTime: true}, {age:{$lte: 22}}]})  # find some documents that have two conditions true with $and operator
+db.students.find({$or:[{fullTime: true}, {age:{$lte: 22}}]})  # find some documents that have one of two condition true with $or operator
+db.students.find({$nor:[{fullTime: true}, {age:{$lte: 22}}]}) # find some documents that have one of two condition false with $nor operator
+db.students.find({$not:[{fullTime: true}, {age:{$lte: 22}}]})  # find some documents that have two conditions false with $and operator
