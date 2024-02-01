@@ -76,5 +76,27 @@ db.students.find({Name:{$nin:["Spongebob", "Larry", "Patrick"]}}) # don't show t
 # Logical Query Operators
 db.students.find({$and:[{fullTime: true}, {age:{$lte: 22}}]})  # find some documents that have two conditions true with $and operator
 db.students.find({$or:[{fullTime: true}, {age:{$lte: 22}}]})  # find some documents that have one of two condition true with $or operator
-db.students.find({$nor:[{fullTime: true}, {age:{$lte: 22}}]}) # find some documents that have one of two condition false with $nor operator
-db.students.find({$not:[{fullTime: true}, {age:{$lte: 22}}]})  # find some documents that have two conditions false with $and operator
+db.students.find({$nor:[{fullTime: true}, {age:{$lte: 22}}]}) # find some documents that have two conditions false with $nor operator
+db.students.find({age:{$not:{$gte:22}}}) # find some documents and negative its Comparison Query Operators with $not operator
+
+
+# Indexes
+db.students.find({Name: "Larry"}).explain("executionStats")  # show more detail about this document
+db.students.createIndex({Name: 1})  # create specific index for specific field // 1 ascending // -1 descending
+db.students.getIndexes()  # show all indexes
+db.students.dropIndex("Name_1")  # delete specific index
+
+
+# Collections
+show collections  # to show all collections
+
+db.createCollection("teachers", {capped: true, size: 10000000, max: 100}, {autoIndexId: false}) # to create one collection
+# if capped has been true it means you have to set max input values
+# if capped has been false it means you have to set min input values
+# max is for define how many teachers might be in this school
+# size is collection size as byte
+# autoIndexId is for define automatically index ID for each document
+
+db.Teachers.drop()  # to delete specific collection
+
+
