@@ -31,13 +31,14 @@ my_second_dict = mylist = [
     {"name": "Viola", "address": "Sideway 1633"}
 ]
 
-y = my_col.insert_many(my_second_dict)
+# y = my_col.insert_many(my_second_dict)
 
 # count = 0
 # for i in y.inserted_ids:
 #     count += 1
 #     print(count, "", i)
 
+# Drop a collection
 my_col.drop()
 
 my_third_dict = [
@@ -93,6 +94,53 @@ z = my_col.insert_many(my_third_dict)
 # for i in x:
 #     print(i)
 
-x = my_col.find().sort("name", 1)  # sort ascending
+# x = my_col.find().sort("name", 1)  # sort ascending
+# for i in x:
+#     print(i)
+
+# delete a document
+# query = {"address": "Mountain 21"}
+# my_col.delete_one(query)
+# x = my_col.find()
+# for i in x:
+#     print(i)
+
+# delete many documents
+# query = {"address": {"$regex": "^S"}}
+# my_col.delete_many(query)
+# x = my_col.find()
+# for i in x:
+#     print(i)
+
+# delete all documents
+# query = {}
+# x = my_col.delete_many({})
+# print(x.deleted_count, "documents deleted")
+
+#  update a document
+# query = {"address": "Valley 345"}
+# newValue = {"$set": {"address": "Canyon 123"}}
+# x = my_col.find_one(query)
+# my_col.update_one(query, newValue)
+# y = my_col.find_one({"address": "Canyon 123"})
+# print(x, "\n", y)
+
+# update many documents
+# query = {"address": {"$regex": "^S"}}
+# newValue = {"$set": {"name": "Mania"}}
+# x = my_col.find(query)
+# print(75 * "=")
+# for i in x:
+#     print(i)
+# z = my_col.update_many(query, newValue)
+# y = my_col.find({"name": "Mania"})
+# print("\n", z.modified_count, "documents updated", "\n")
+# for i in y:
+#     print(i)
+# print(75 * "=")
+
+# limit
+x = my_col.find().limit(5)
 for i in x:
     print(i)
+
