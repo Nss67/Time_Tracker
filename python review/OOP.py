@@ -1,8 +1,5 @@
 # inheritance and polymorphism
 
-from typing import Any
-
-
 class animals:
     alive = True
 
