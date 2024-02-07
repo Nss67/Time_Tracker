@@ -1,0 +1,15 @@
+
+pip install -U pyinstaller
+
+pyinstaller -F -w -i icon.ico timer.py
+
+-F (All in one file)
+-w (removes termianl window)
+-i icon.ico (adds custom icon to .exe)
+timer.py (name of your name python file)
+
+.exe file is located in the ./dist folder
+
+source:
+F:\Youtube-dl\Coding\BroCode\Bro Code\Python tutorial for beginners 🐍\101 - Python py to exe 🏃.20210211.mp4
+https://pyinstaller.org/en/stable/
