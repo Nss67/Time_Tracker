@@ -1,4 +1,4 @@
-Git and Github
+Git and GitHub
 
 Check Git installed:
 git --version  or  git -v
@@ -27,7 +27,7 @@ git add <file name>
 or
 git add .  # Stage all file
 or
-git add -A  # Stage all files that them are every where as sub folders
+git add -A  # Stage all files that them are everywhere as sub folders
 
 Remove all files in stage:
 git rm --cached *
@@ -65,7 +65,7 @@ change commit message:
 git commit --amend -m "new message"
 
 Undo Commit:
-git revert <id> or <tag>  # copy all codes from previously commit and create a new commit  in head of branch by lates commit id
+git revert <id> or <tag>  # copy all codes from previously commit and create a new commit  in head of branch by latest commit id
 
 git reset --hard <id> or <tag> Undo change by deleting all commits since id
 
@@ -121,7 +121,7 @@ Enter ssh passkey
 git push
 Enter ssh passkey
 
-# if you change your code in your GitHub page or give a accepted pull request use this:
+# if you change your code in your GitHub page or give an accepted pull request use this:
 git pull
 Enter ssh passkey
 
@@ -131,16 +131,16 @@ git branch <branch name>
 # switch between branches
 git checkout <branch name>
 
-# switch to pervious branch
+# switch to previous branch
 git checkout -
 
-# create new banch and switch to it same time
+# create new branch and switch to it same time
 git checkout -b <branch name>
 
 # to delete a branch
 git branch -d <branch name>
 
-Merge branches in local system: # go to pervious branch and then merge them
+Merge branches in local system: # go to previous branch and then merge them
 git merge <name>
 
 README.md configs:
@@ -149,7 +149,7 @@ https://docs.github.com/en/get-started/writing-on-github/getting-started-with-wr
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 download some repo:
-git clone <repo address> <folder name> # that you want to keep thoes code in it
+git clone <repo address> <folder name> # that you want to keep those code in it
 
 # show remotes:
 git remote
