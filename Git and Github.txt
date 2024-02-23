@@ -1,0 +1,164 @@
+Git and Github
+
+Check Git installed:
+git --version  or  git -v
+git --help  or  git -h
+
+Git Configuration:
+git config --global user.name "Nss67"
+git config --global user.email "milade67@hotmail.com"
+git config --global color.ui auto
+git config -l  # show all config
+
+Create Repository:
+git init .
+
+Delete Repository:
+powershell
+Remove-Item -Path .git -Recurse -Force
+Bash:
+rm -rf .git
+
+Check stage status:
+git status
+
+Staging files:
+git add <file name>
+or
+git add .  # Stage all file
+or
+git add -A  # Stage all files that them are every where as sub folders
+
+Remove all files in stage:
+git rm --cached *
+git rm -r --cached .
+
+Git ignore:
+create a file that named (.gitignore) and then write in it every you don't want to commit
+
+Create Commit:
+git commit -m "message"
+
+Create tag for commits:
+git tag -a <version> -m "messages"
+
+Show Commits:
+git log
+
+Move between Commits:
+git checkout <tag>
+git checkout <id>
+
+show what happened in commit:
+git show <commit id> or <tag name>
+
+show what changed in files modified and not staged:
+git diff
+
+show what changed in last commit with its before:
+git diff <before commit id> or <before tag name>
+
+Restore changed in modified files before stage them:
+git restore .
+
+change commit message:
+git commit --amend -m "new message"
+
+Undo Commit:
+git revert <id> or <tag>  # copy all codes from previously commit and create a new commit  in head of branch by lates commit id
+
+git reset --hard <id> or <tag> Undo change by deleting all commits since id
+
+
+Github
+
+important : if you are working in the VM set dns confing default
+
+connect to repo:
+git remote add origin git@github.com:Nss67/time_manager.git
+
+remove remote repo:
+git remote rm origin
+
+Show all branches:
+git branch -a
+
+change master name branch to main;
+git branch -m main
+
+SSH key setup:
+profile > settings > SSH and GPG keys
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+Open Git Bash
+ssh-keygen -t ed25519 -C "milade67@hotmail.com"
+Press Enter
+Password
+
+open powershell as administrator:
+Get-Service -Name ssh-agent | Set-Service -StartupType Manual
+Start-Service ssh-agent
+
+go to .ssh folder that you created:
+ssh-add id_ed25519
+Enter passphrase
+
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+
+open Git Bash:
+clip < ~/.ssh/id_ed25519.pub
+## Copies the contents of the id_ed25519.pub file to your clipboard
+
+go profile > settings > SSH and GPG keys > New SSH Key
+copy your key
+set passcode or passphrase like PIN code
+
+push your local repo to your GitHub repo:
+git push -u origin main
+Enter ssh passkey
+
+# after very changes in your code in you local system use this command
+git push
+Enter ssh passkey
+
+# if you change your code in your GitHub page or give a accepted pull request use this:
+git pull
+Enter ssh passkey
+
+# create new branch
+git branch <branch name>
+
+# switch between branches
+git checkout <branch name>
+
+# switch to pervious branch
+git checkout -
+
+# create new banch and switch to it same time
+git checkout -b <branch name>
+
+# to delete a branch
+git branch -d <branch name>
+
+Merge branches in local system: # go to pervious branch and then merge them
+git merge <name>
+
+README.md configs:
+https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+download some repo:
+git clone <repo address> <folder name> # that you want to keep thoes code in it
+
+# show remotes:
+git remote
+
+# show remote url
+git remote get-url <remote name>
+
+
+Git clone:
+https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository?tool=cli
+
+Cloning an Existing Repository PDF  : P33
