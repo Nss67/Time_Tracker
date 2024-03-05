@@ -10,6 +10,7 @@ pause_times = []
 total = None
 result = None
 while True:
+
     ready = input("\nAre you ready? (default is Y) ")
 
     # conditions and record start time, break time, end time
@@ -28,38 +29,31 @@ while True:
             pause_times.append(dtp)
         else:
             pass
+
     else:
-        for i in pause_times:
-            if total is None:
-                total = i
-            else:
-                total += i
+        if pause_times:
+            for i in pause_times:
+                if total is None:
+                    total = i
+                else:
+                    total += i
 
-        print(f"\ntotal of your today practice of the {course} is {total} that was so good:)")
-        result = total
-        total = None
+            print(f"\ntotal of your today practice of the {course} is {total} that was so good:)")
+            result = total
+            total = None
 
-        exit1 = input(f"\nif you want to exit press E or C to continue: (default is E) ")
-        if exit1 == "":
-            exit1 = "E"
-        if exit1.upper()[0] == "E":
-            with open("records.txt", mode="a") as file:
-                file.write(f"{date.today()} {course} {result}\n")
-                file.close()
+            exit1 = input(f"\nif you want to exit press E or C to continue: (default is E) ")
+            if exit1 == "":
+                exit1 = "E"
+            if exit1.upper()[0] == "E":
+                with open("records.txt", mode="a") as file:
+                    file.write(f"{date.today()} {course} {result}\n")
+                    file.close()
+                    break
+
+        else:
             break
 
 # save all values in a file (txt, spreadsheet, database) and configure them
 
 # GUI with kivy
-
-# Tag
-
-# Timer2
-
-# finally I could connect to GitHub
-
-for i in range(1, 100):
-    print(i)
-
-x = "GitHub worked"
-print(x)
