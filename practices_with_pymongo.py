@@ -7,6 +7,7 @@ db_list = my_client.list_database_names()
 
 my_db = my_client["my_shop"]
 my_col = my_db["customers"]
+my_scol = my_db.create_collection("Test")
 
 col_list = my_db.list_collection_names()
 # print(col_list)
