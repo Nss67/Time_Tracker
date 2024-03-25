@@ -67,7 +67,7 @@ z = my_col.insert_many(my_third_dict)
 
 # x = my_col.find()
 # for i in x:
-#     print(i)
+    # print(i)
 
 # x = my_col.find({}, {"_id": 0, "name": 1, "address": 1})
 # for i in x:
@@ -140,7 +140,7 @@ z = my_col.insert_many(my_third_dict)
 # print(75 * "=")
 
 # limit
-x = my_col.find().limit(5)
-for i in x:
-    print(i)
+# x = my_col.find().limit(5)
+# for i in x:
+    # print(i)
 

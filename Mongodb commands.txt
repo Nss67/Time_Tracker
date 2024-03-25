@@ -55,7 +55,7 @@ db.students.updateOne({_id: ObjectId('65b3b46b1bbb075b7cc18d4a')}, {$unset:{full
 db.students.updateMany({fulltime: null}, {$unset:{fulltime: ""}})
 
 # if one field is exist do something
-db.students.updateMany(HomeLess:{$exists: false}}, {$set:{HomeLess: true}})
+db.students.updateMany({HomeLess:{$exists: false}}, {$set:{HomeLess: true}})
 
 # delete some key_value pair
 db.students.deleteOne({Name: "Patrick"})
