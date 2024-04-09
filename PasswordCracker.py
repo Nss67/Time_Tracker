@@ -4,7 +4,7 @@ alphabet = [' ', '!', '"', '#', '$', '%', '&', "''", '(', ')', '*', '+', ',', '-
 count = 0
 alphabet_length = len(alphabet)
 
-password = "FSFwFEw#5d4a65d4as654d 34#?#2$?@42hdjh ahd"
+password = input("Enter you strong password: ")
 password_length = len(password)
 
 guess = ""
@@ -15,6 +15,7 @@ for i in range(password_length):
     for p in range(alphabet_length):
         y = alphabet[p]
         if x == y:
+            # print(guess)
             guess += f"{y}"
         if guess == password:
             print(f"{guess} is WiFi password")
